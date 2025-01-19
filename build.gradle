@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.17.0'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+intellij {
+    version = '2023.3.4' // Match your IntelliJ version 2023.3.4
+    plugins = [] // Add required plugins here if any
+}
+
+dependencies {
+    implementation "org.jetbrains:annotations:24.0.1"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17  // Use Java 17 for compiling
+    targetCompatibility = JavaVersion.VERSION_17  // Use Java 17 for compiling
+}
+
+tasks {
+    patchPluginXml {
+        changeNotes = """
+            Initial version of the plugin.
+        """
+    }
+}
